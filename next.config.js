@@ -4,4 +4,8 @@ module.exports = {
   env: {
     ABLY_IS_ACTIVE: !!process.env.ABLY_API_KEY,
   },
+  webpack: (config) => {
+    config.resolve.alias["~"] = path.join(__dirname, ".");
+    return config;
+  },
 };
