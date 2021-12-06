@@ -4,12 +4,9 @@ export type Contributor = {
   name: string;
   slug: string;
   description?: string;
-  additionalSections: {
+  additionalSection?: React.ReactNode;
+  links?: {
     name: string;
-    content: React.ReactNode;
-  }[];
-  socialLinks?: {
-    name: string;
-    url: string;
+    url: `https://${string}`;
   }[];
 };

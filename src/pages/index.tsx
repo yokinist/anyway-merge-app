@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
-import { contributors } from "../constants";
 import { VFXSpan, VFXImg } from "react-vfx";
 import Navbar from "../components/atoms/navbar";
 import { useRealtimeCursor, RealtimeCursors } from "../libs/realtime-cursor";
+import { contributors } from "~/data";
 
 const Home: NextPage = () => {
   const [ref, pointers] = useRealtimeCursor();
@@ -53,8 +53,10 @@ const Home: NextPage = () => {
           <div>
             <ul className={styles.list}>
               {contributors.map((member) => (
-                <li key={member} className={styles.listitem}>
-                  <Link href={`/contributors/${member}`}>{member}</Link>
+                <li key={member.slug} className={styles.listitem}>
+                  <Link href={`/contributors/${member.slug}`}>
+                    <a>{member.name}</a>
+                  </Link>
                 </li>
               ))}
             </ul>
